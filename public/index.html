@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div class="container" ng-controller="AppCtrl">
-		<h1>Curitiba Vegana App</h1>
+		<h1>Contato</h1>
 		<table class="table">
 			<thead>
 				<tr>
@@ -20,6 +20,13 @@
 					<th>Telefone</th>
 				</tr>
 			</thead>
+			<tbody>
+				<tr ng-repeat="contact in contactList">
+					<td>{{contact.name}}</td>
+					<td>{{contact.email}}</td>
+					<td>{{contact.telefone}}</td>
+				</tr>
+			</tbody>
 
 		</table>
 	</div>
