@@ -4,7 +4,8 @@
   "description": "front-end curitibaVegana",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "mongojs": "^2.4.0"
   },
   "devDependencies": {},
   "scripts": {
