@@ -1,43 +1,52 @@
-var express = require('express')
-var app 	= express();
-var mongojs = require('mongojs')
-var db		= mongojs('curitibaVegana',['contactList'])
+var express 	= require('express')
+var app 		= express();
+var mongojs 	= require('mongojs')
+var db			= mongojs('curitibaVegana',['contactList'])
+var bodyParser 	= require('body-parser')
 
 app.use(express.static(__dirname + "/public"));
+app.use(bodyParser.json());
 
-app.get('/contato',function(req, res){
+app.get('/contato',function(req, res) {
 	console.log('Get Request received!')
 
-	db.curitibaVegana.find(function(err, docs){
+	db.curitibaVegana.find(function(err, docs) {
 		console.log(docs);
 		res.json(docs);
 	});
-	// person1 = {
-	// 	name: 'Nome 1',
-	// 	email: 'nome1@email.com',
-	// 	telefone: '(41) 9999-9999'
-	// };									
-		
-	// person2 = {
-	// 	name: 'Nome 2',
-	// 	email: 'nome2@email.com',
-	// 	telefone: '(42) 9999-9999'
-	// };
 
-	// person3 = {
-	// 	name: 'Nome 3',
-	// 	email: 'nome3@email.com',
-	// 	telefone: '(43) 9999-9999'
-	// };
+	app.post('/contato', function(req, res) {
+		console.log(req.body);
+		db.curitibaVegana.insert(req.body, function(err, doc) {
+			res.json(doc);
+		})
+	});
 
-	// person4 = {
-	// 	name: 'Nome 4',
-	// 	email: 'nome4@email.com',
-	// 	telefone: '(44) 9999-9999'
-	// };
+	app.delete('/contato/:id', function(req, res) {
+		var id = req.params.id;
+		db.curitibaVegana.remove({_id: mongojs.ObjectId(id)}, function(err, doc) {
+			res.json(doc);
+		})
+	});
 
-	// var contactList = [person1, person2, person3, person4];
-	// res.json(contactList);
+	app.get('/contato/:id', function(req, res) {
+		var id = req.params.id;
+		console.log(id);
+		db.curitibaVegana.findOne({_id: mongojs.ObjectId(id)}, function(err, doc){
+			res.json(doc);
+		})
+	});
+
+	app.put('/contato/:id', function(req, res) {
+		var id = req.params.id;
+		console.log(req.body.name);
+		db.curitibaVegana.findAndModify({query: {_id: mongojs.ObjectId(id)},
+			update: {$set: {name: req.body.name, email: req.body.email, telefone: req.body.telefone}},
+			new: true}, function (err, doc) {
+				res.json(doc);
+			});
+	});
+
 });
 
 app.listen(3000);
