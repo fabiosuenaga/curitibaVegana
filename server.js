@@ -10,6 +10,10 @@ app.use(bodyParser.json());
 app.get('/contato',function(req, res) {
 	console.log('Get Request received!')
 
+	db.on('ready',function() {
+    	console.log('database connected');
+	});
+
 	db.curitibaVegana.find(function(err, docs) {
 		console.log(docs);
 		res.json(docs);

@@ -10,47 +10,60 @@
 	<title>Curitiba Vegana App</title>
 </head>
 <body>
-	<div class="container" ng-controller="AppCtrl">
-		<h1>Contato</h1>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Email</th>
-					<th>Telefone</th>
-					<th>Action</th>
-					<th>&nbsp;</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>
-						<input class="form-control" ng-model="contact.name">
-					</td>
-					<td>
-						<input class="form-control" ng-model="contact.email">						
-					</td>
-					<td>
-						<input class="form-control" ng-model="contact.telefone">						
-					</td>
-					<td>
-						<button class="btn btn-primary" ng-click="addContact()">Adicionar</button>
-					</td>
-					<td>
-						<button class="btn btn-info" ng-click="update()">Atualizar</button>&nbsp;&nbsp;
-						<button class="btn btn-info" ng-click="deselect()">Limpar</button>
-					</td>
-				</tr>
-				<tr ng-repeat="contact in contactList">
-					<td>{{contact.name}}</td>
-					<td>{{contact.email}}</td>
-					<td>{{contact.telefone}}</td>
-					<td><button class="btn btn-danger" ng-click="remove(contact._id)">Remover</button></td>
-					<td><button class="btn btn-warning" ng-click="edit(contact._id)">Editar</button></td>
-				</tr>
-			</tbody>
+	<div class="container" ng-controller="AppCtrl"></br>
 
-		</table>
+		<ul class="nav nav-tabs">
+	  		<li  class="active"><a>Estabelecimentos</a></li>
+	  		<li><a>Notícias Veg</a></li>
+	  		<li><a>Receitas</a></li>
+		</ul>
+
+		<div class="panel panel-default tabs-container">
+
+			<div class="panel-heading">
+				<h1>Contato</h1>
+			</div>
+			<div class="panel-body">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Telefone</th>
+							<th>Action</th>
+							<th>&nbsp;</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<input class="form-control" ng-model="contact.name">
+							</td>
+							<td>
+								<input class="form-control" ng-model="contact.email">						
+							</td>
+							<td>
+								<input class="form-control" ng-model="contact.telefone">						
+							</td>
+							<td>
+								<button class="btn btn-primary" ng-click="addContact()">Adicionar</button>
+							</td>
+							<td>
+								<button class="btn btn-info" ng-click="update()">Atualizar</button>&nbsp;&nbsp;
+								<button class="btn btn-info" ng-click="deselect()">Limpar</button>
+							</td>
+						</tr>
+						<tr ng-repeat="contact in contactList">
+							<td>{{contact.name}}</td>
+							<td>{{contact.email}}</td>
+							<td>{{contact.telefone}}</td>
+							<td><button class="btn btn-danger" ng-click="remove(contact._id)">Remover</button></td>
+							<td><button class="btn btn-warning" ng-click="edit(contact._id)">Editar</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.30/angular.min.js"></script>
