@@ -1,0 +1,110 @@
+.table {
+  table-layout:fixed;
+}
+
+.table td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+td.contactName {
+  width: 170px;
+  white-space: nowrap;
+}
+
+td.contactEmail {
+  width: 198px;
+  padding-left: 12px;
+  white-space: nowrap;
+}
+
+td.contactPhone {
+  width: 160px;
+  padding-left: 12px;
+  white-space: nowrap;
+}
+
+td.contactLatitude {
+  width: 110px;
+  padding-left: 12px;
+  white-space: nowrap;
+}
+
+td.contactLongitude {
+  width: 110px;
+  padding-left: 12px;
+  white-space: nowrap;
+}
+
+td.contactEndereco {
+  width: 110px;
+  padding-left: 12px;
+  white-space: nowrap;
+}
+
+td.button-close {
+  text-align: right;
+}
+
+div.radio {
+	text-align: left;
+	padding-left: 15px;
+}
+
+.button-menu {
+	width: 1140px;
+	text-align: right;
+}
+
+.contactName {
+	width: 220px;
+}
+
+.contactEmail {
+	width: 180px;
+}
+
+.contactPhone {
+	width: 150px;
+}
+
+.contactLatitude {
+	width: 100px;
+}
+
+.contactLongitude {
+	width: 100px;
+}
+
+.contactEndereco {
+	width: 200px;
+}
+
+.selected {
+  background-color: green;
+  color: white;
+}
+
+.first-column {
+  width: 40%;
+  float: left;
+}
+
+.second-column {
+  width: 40%;
+  float: right;
+}
+
+/*.map-wrapper {
+    position: relative;
+    height: calc(100vh - 4em - 64px);
+}
+
+.angular-google-map-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}*/

@@ -41,7 +41,7 @@ app.get('/contato',function(req, res) {
 		var id = req.params.id;
 		console.log(req.body.name);
 		db.curitibaVegana.findAndModify({query: {_id: mongojs.ObjectId(id)},
-			update: {$set: {name: req.body.name, email: req.body.email, telefone: req.body.telefone}},
+			update: {$set: {name: req.body.name, email: req.body.email, telefone: req.body.telefone, latitude: req.body.latitude, longitude: req.body.longitude, endereco: req.body.endereco, tipo: req.body.tipo}},
 			new: true}, function (err, doc) {
 				res.json(doc);
 			});
