@@ -12,81 +12,97 @@
 	<title>Curitiba Vegana App</title>
 </head>
 <body>
-	<div class="container" ng-app="myApp" ng-controller="AppCtrl">
-		<h1>Contato</h1>
-		<div></div>
-		<div class="button-menu">
-			<button class="btn btn-primary" ng-disabled="deselect" ng-click="addContact()">Adicionar</button>
-			<button class="btn btn-info" ng-click="update()">Atualizar</button>
-			<button class="btn btn-info" ng-click="deselect()">Limpar</button>
-		</div>
+	<div class="container" ng-app="myApp" ng-controller="AppCtrl"></br>
 
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Email</th>
-					<th>Telefone</th>
-					<th>Latitude</th>
-					<th>Longitude</th>
-					<th>Endereço</th>
-					<th>&nbsp;</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>
-						<input class="form-control" ng-model="contact.name">
-					</td>
-					<td>
-						<input class="form-control" ng-model="contact.email">
-					</td>
-					<td>
-						<input class="form-control" ng-model="contact.telefone">	
-					</td>
-					<td>
-						<input class="form-control" ng-model="contact.latitude">
-					</td>
-					<td>
-						<input class="form-control" ng-model="contact.longitude">
-					</td>
-					<td>
-						<textarea class="form-control" ng-model="contact.endereco">
-						</textarea>			
-					</td>
-					<td>
-						<div class="form-group">
-            				<div class="radio">
-                				<label>
-                    				<input type="radio" name="tipo" value="vegano" ng-model="contact.tipo">Vegano
-                				</label>
-				            </div>
-				            <div class="radio">
-                				<label>
-                    				<input type="radio" name="tipo" value="vegetariano" ng-model="contact.tipo">Vegetariano
-                				</label>
-            				</div>
-            				<div class="radio">
-                				<label>
-                    				<input type="radio" name="tipo" value="ovolactovegetariano" ng-model="contact.tipo">Ovo Lacto
-                				</label>
-            				</div>
-        				</div>
-					</td>
-				</tr>
-				<tr ng-repeat="contact in contactList" ng-click="setSelected(contact._id); edit(contact._id)" ng-class="{selected : contact._id === idSelectedContact}">
-					<td class="contactName">{{contact.name}}</td>
-					<td class="contactEmail">{{contact.email}}</td>
-					<td class="contactPhone">{{contact.telefone}}</td>
-					<td class="contactLatitude">{{contact.latitude}}</td>
-					<td class="contactLongitude">{{contact.longitude}}</td>
-					<td class="contactEndereco">{{contact.endereco}}</td>
-					<td class="button-close">
-						<button class="btn btn-danger" ng-click="remove(contact._id)">Remover</button>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+		<ul class="nav nav-tabs">
+	  		<li  class="active"><a>Estabelecimentos</a></li>
+	  		<li><a>Notícias Veg</a></li>
+	  		<li><a>Receitas</a></li>
+		</ul>
+
+		<div class="panel panel-default tabs-container">
+
+			<div class="panel-heading">
+				<h1>Contato</h1>
+			</div>
+			<div class="panel-body">
+
+				<div class="button-menu">
+					<button class="btn btn-primary" ng-disabled="deselect" ng-click="addContact()">Adicionar</button>
+					<button class="btn btn-info" ng-click="update()">Atualizar</button>
+					<button class="btn btn-info" ng-click="deselect()">Limpar</button>
+				</div><br>
+
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Telefone</th>
+							<th>Latitude</th>
+							<th>Longitude</th>
+							<th>Endereço</th>
+							<th>&nbsp;</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<input class="form-control" ng-model="contact.name">
+							</td>
+							<td>
+								<input class="form-control" ng-model="contact.email">
+							</td>
+							<td>
+								<input class="form-control" ng-model="contact.telefone">	
+							</td>
+							<td>
+								<input class="form-control" ng-model="contact.latitude">
+							</td>
+							<td>
+								<input class="form-control" ng-model="contact.longitude">
+							</td>
+							<td>
+								<textarea class="form-control" ng-model="contact.endereco">
+								</textarea>			
+							</td>
+							<td>
+								<div class="form-group">
+		            				<div class="radio">
+		                				<label>
+		                    				<input type="radio" name="tipo" value="vegano" ng-model="contact.tipo">Vegano
+		                				</label>
+						            </div>
+						            <div class="radio">
+		                				<label>
+		                    				<input type="radio" name="tipo" value="vegetariano" ng-model="contact.tipo">Vegetariano
+		                				</label>
+		            				</div>
+		            				<div class="radio">
+		                				<label>
+		                    				<input type="radio" name="tipo" value="ovolactovegetariano" ng-model="contact.tipo">Ovo Lacto
+		                				</label>
+		            				</div>
+		        				</div>
+							</td>
+						</tr>
+						<tr ng-repeat="contact in contactList" ng-click="setSelected(contact._id); edit(contact._id)" ng-class="{selected : contact._id === idSelectedContact}">
+							<td class="contactName">{{contact.name}}</td>
+							<td class="contactEmail">{{contact.email}}</td>
+							<td class="contactPhone">{{contact.telefone}}</td>
+							<td class="contactLatitude">{{contact.latitude}}</td>
+							<td class="contactLongitude">{{contact.longitude}}</td>
+							<td class="contactEndereco">{{contact.endereco}}</td>
+							<td class="button-close">
+								<button class="btn btn-danger" ng-click="remove(contact._id)">Remover</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+
+			</div>
+		</div>
 	</div>
 
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.30/angular.min.js"></script>
